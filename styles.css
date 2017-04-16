@@ -35,12 +35,24 @@ body {
     background-attachment: scroll;
 }
 
+.comingsoon {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: normal;
+    font-family: "Rokkitt";
+    color: #AAA;
+}
+
 h1 {
     padding-top: 10px;
     text-align: center;
     margin-top: 40px;
     margin-bottom: 40px;
-    text-shadow: 5px 5px 3px #CCC;
+    text-shadow: 5px 5px 2px #CCC;
     font-size: 70px;
     font-family: "Playfair Display";
     font-weight: normal;
