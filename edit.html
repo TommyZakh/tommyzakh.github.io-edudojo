@@ -127,17 +127,26 @@ return false;}"
                 var i;
                 var totalText = "";
                 
-                totalText += sessionStorage.getItem('name');
-                totalText += "\n";
-                totalText += sessionStorage.getItem('instructor');
-                totalText += "\n";
-                totalText += sessionStorage.getItem('subject');
-                totalText += "\n";
-                totalText += sessionStorage.getItem('date');
-                totalText += "\n";
-                
-                totalText += document.getElementById("title-input").value;
-                totalText += "\n";
+                if (sessionStorage.getItem('name') !== "") {
+                    totalText += sessionStorage.getItem('name');
+                    totalText += "\n";
+                }
+                if (sessionStorage.getItem('instructor') !== "") {
+                    totalText += sessionStorage.getItem('instructor');
+                    totalText += "\n";
+                }
+                if (sessionStorage.getItem('subject') !== "") {
+                    totalText += sessionStorage.getItem('subject');
+                    totalText += "\n";
+                }
+                if (sessionStorage.getItem('name') !== "") {
+                    totalText += sessionStorage.getItem('date');
+                    totalText += "\n";
+                }
+                if (document.getElementById("title-input").value !== "") {
+                    totalText += document.getElementById("title-input").value;
+                    totalText += "\n";
+                }
                 
                 for (i = 0; i < x.length; i++) {
                     totalText += x[i].value;
@@ -145,13 +154,7 @@ return false;}"
                         totalText += "\n";
                 }
                 console.log(totalText);
-                /*
-                console.log(x[0].value);
-                console.log(x[1].value);
-                console.log(x[2].value);
-                console.log(x[3].value);
-                console.log(x[4].value);
-                */
+                
                 window.location.href = 'view.html';
                 sessionStorage.setItem('essay', totalText)
             }
