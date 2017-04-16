@@ -25,7 +25,7 @@ return false;}"
                                 {var v=this.value,s=this.selectionStart,
                                 e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);
                                 this.selectionStart=this.selectionEnd=s+1;
-                                return false;}" class="paragraph-input" cols="40" rows="8"></textarea>
+                                return false;}" class="paragraph-input" cols="40" rows="16"></textarea>
                             </td>
                         </tr>
                     </table>
@@ -40,7 +40,7 @@ return false;}"
                                 {var v=this.value,s=this.selectionStart,
                                 e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);
                                 this.selectionStart=this.selectionEnd=s+1;
-                                return false;}" class="paragraph-input" cols="40" rows="8"></textarea>
+                                return false;}" class="paragraph-input" cols="40" rows="16"></textarea>
                             </td>
                         </tr>
                     </table>
@@ -55,7 +55,7 @@ return false;}"
                                 {var v=this.value,s=this.selectionStart,
                                 e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);
                                 this.selectionStart=this.selectionEnd=s+1;
-                                return false;}" class="paragraph-input" cols="40" rows="8"></textarea>
+                                return false;}" class="paragraph-input" cols="40" rows="16"></textarea>
                             </td>
                         </tr>
                     </table>
@@ -70,7 +70,7 @@ return false;}"
                                 {var v=this.value,s=this.selectionStart,
                                 e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);
                                 this.selectionStart=this.selectionEnd=s+1;
-                                return false;}" class="paragraph-input" cols="40" rows="8"></textarea>
+                                return false;}" class="paragraph-input" cols="40" rows="16"></textarea>
                             </td>
                         </tr>
                     </table>
@@ -85,7 +85,18 @@ return false;}"
                                 {var v=this.value,s=this.selectionStart,
                                 e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);
                                 this.selectionStart=this.selectionEnd=s+1;
-                                return false;}" class="paragraph-input" cols="40" rows="8"></textarea>
+                                return false;}" class="paragraph-input" cols="40" rows="16"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div>
+                    <h2>Title</h2>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <input type="text" id="title-input" class="header-input"/>
                             </td>
                         </tr>
                     </table>
@@ -93,10 +104,57 @@ return false;}"
                 
                 <div class="endofpage">
                     <h2>Done with your essay?</h2>
-                    <a href="./newEssay.html"><button class="finish-button" >All done.</button></a>
+                    <button class="finish-button" onclick="combineEssay();">All done.</button>
                 </div>
-                
             </div>
         </div>
+        
+        <script type="text/javascript">
+            window.onload = function() {
+                addTabs();
+            };
+            
+            function addTabs() {
+                var x = document.getElementsByClassName("paragraph-input");
+                var i;
+                for (i = 0; i < x.length; i++) {
+                    x[i].value += "\t";
+                }
+            }
+            
+            function combineEssay() {
+                var x = document.getElementsByClassName("paragraph-input");
+                var i;
+                var totalText = "";
+                
+                totalText += sessionStorage.getItem('name');
+                totalText += "\n";
+                totalText += sessionStorage.getItem('instructor');
+                totalText += "\n";
+                totalText += sessionStorage.getItem('subject');
+                totalText += "\n";
+                totalText += sessionStorage.getItem('date');
+                totalText += "\n";
+                
+                totalText += document.getElementById("title-input").value;
+                totalText += "\n";
+                
+                for (i = 0; i < x.length; i++) {
+                    totalText += x[i].value;
+                    if (i < x.length-1)
+                        totalText += "\n";
+                }
+                console.log(totalText);
+                /*
+                console.log(x[0].value);
+                console.log(x[1].value);
+                console.log(x[2].value);
+                console.log(x[3].value);
+                console.log(x[4].value);
+                */
+                window.location.href = 'view.html';
+                sessionStorage.setItem('essay', totalText)
+            }
+        </script>
     </body>
 </html>

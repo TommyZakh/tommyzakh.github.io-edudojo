@@ -112,6 +112,21 @@ td {
     border: none;
 }
 
+.essay {
+    word-break: break-word;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    font-family: "Source Sans Pro";
+    font-size: 16px;
+    color: #000;
+    border: none;
+    word-wrap: break-word;
+    white-space: pre;
+}
+
 .finish-button {
     box-sizing:border-box;
     margin: 10px 0;

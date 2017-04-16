@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+"if(event.keyCode===9)
+{var v=this.value,s=this.selectionStart,
+e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);
+this.selectionStart=this.selectionEnd=s+1;
+return false;}"
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+        <title>Reiew Essay</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="page">
+                <div>
+                    <h1>REVIEW ESSAY</h1>
+                    <h2>Congratulations!</h2>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <p id="essaytext" class="essay">text here</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            window.onload = function() {
+                displayEssay();
+            };
+            function displayEssay() {
+                var target = document.getElementById("essaytext");
+                var text = sessionStorage.getItem('essay');
+                target.textContent = text;
+            }
+        </script>
+    </body>
+</html>
