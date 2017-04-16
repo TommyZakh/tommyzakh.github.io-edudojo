@@ -15,11 +15,11 @@
                         <tr>
                             <td>
                                 <h3>Standard</h3>
-                                <button class="format-button">MLA (Name, Instructor, Subject, Date Due)</button>
+                                <button id="a1" class="format-button" onclick="changeSelection(this);">MLA (Name, Instructor, Subject, Date Due)</button>
                                 <p></p>
-                                <button class="format-button">Name, Subject, Period, Date Due</button>
+                                <button id="a2" class="format-button" onclick="changeSelection(this);">Name, Subject, Period, Date Due</button>
                                 <p></p>
-                                <button class="format-button">Name, Period, Date Due</button>
+                                <button id="a3" class="format-button" onclick="changeSelection(this);">Name, Period, Date Due</button>
                                 <p></p>
                             </td>
                             <td>
@@ -54,9 +54,9 @@
                         <tr>
                             <td>
                                 <h3>Standard</h3>
-                                <button class="format-button">1 intro paragraph, 3 body paragraphs, 1 conclusion paragraph</button>
+                                <button id="b1" class="format-button" onclick="changeSelection(this);">1 intro paragraph, 3 body paragraphs, 1 conclusion paragraph</button>
                                 <p></p>
-                                <button class="format-button">1 intro paragraph, 2 body paragraphs, 1 conclusion paragraph</button>
+                                <button id="b2" class="format-button" onclick="changeSelection(this);">1 intro paragraph, 2 body paragraphs, 1 conclusion paragraph</button>
                                 <p></p>
                             </td>
                             <td>
@@ -74,9 +74,66 @@
         </div>
         
         <script type="text/javascript">
+            var aId = -1;
+            var bId = -1;
+            
             window.onload = function() {
                 
             };
+            
+            function changeSelection(me) {
+                if (me.id.charAt(0) === "a") {
+                    //First change the state of the button we clicked on
+                    if (me.className.indexOf("format-button-selected") == -1)
+                        me.className += " format-button-selected";
+                    else {
+                        me.className = "format-button";
+                        aId = me.id.charAt(1);
+                    }
+
+                    
+                    //Look for the previous selected button
+                    var target = document.getElementById("a" + aId)
+                    //If we can find it...
+                    if (target != null && target.id !== me.id) {
+                        //Turn it back into a normal button
+                        target.className = "format-button";
+                    }
+                    
+                    console.log("beofore aId = " + aId);
+                    aId = me.id.charAt(1);
+                    console.log("after aId = " + aId);
+                    console.log("me.className = " + me.className);
+                }
+                else if (me.id.charAt(0) === "b") {
+                    //First change the state of the button we clicked on
+                    if (me.className.indexOf("format-button-selected") == -1)
+                        me.className += " format-button-selected";
+                    else {
+                        me.className = "format-button";
+                        bId = me.id.charAt(1);
+                    }
+
+                    
+                    //Look for the previous selected button
+                    var target = document.getElementById("b" + bId)
+                    //If we can find it...
+                    if (target != null && target.id !== me.id) {
+                        //Turn it back into a normal button
+                        target.className = "format-button";
+                    }
+                    
+                    console.log("beofore aId = " + bId);
+                    bId = me.id.charAt(1);
+                    console.log("after aId = " + bId);
+                    console.log("me.className = " + me.className);
+                }                
+                
+            }
+            
+            function handleSelection() {
+                
+            }
             
             function saveHeadings() {
                 var x = document.getElementsByClassName("header-input");

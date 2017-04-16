@@ -98,6 +98,11 @@ td {
     box-shadow: 0px 5px 10px #CCC;
 }
 
+.format-button-selected {
+    background-color: #006a69;
+    box-shadow: inset 0px 5px 10px #00464a;
+}
+
 .header-input {
     box-shadow: inset 0px 10px 15px #777;
     box-sizing:border-box;
